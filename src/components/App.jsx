@@ -33,21 +33,21 @@ export class App extends Component {
     });
   };
 
+  // removeContact = id => {
+  //   const { contacts } = this.state;
+  //   const idx = contacts.findIndex(item => item.id === id);
+
+  //   const [...newContactsList] = contacts;
+
+  //   console.log(newContactsList.splice(idx, 1));
+  // };
+
   removeContact = id => {
-    const { contacts } = this.state;
-    const idx = contacts.findIndex(item => item.id === id);
-
-    const [...newContactsList] = contacts;
-
-    console.log(newContactsList.splice(idx, 1));
-
-    // this.setState(state => {
-    //   return {
-    //     contacts: () => {
-    //       state.contacts.splice(idx - 1, 1);
-    //     },
-    //   };
-    // });
+    this.setState(({ contacts }) => {
+      return {
+        contacts: contacts.filter(item => item.id !== id),
+      };
+    });
   };
 
   render() {
