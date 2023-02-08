@@ -14,19 +14,6 @@ export class ContactForm extends Component {
     this.setState({ [name]: value });
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.handleAddContact({
-  //     name: this.state.name,
-  //     number: this.state.number,
-  //   });
-
-  //   this.setState({
-  //     name: '',
-  //     number: '',
-  //   })
-  // };
-
   handleSubmit = event => {
     event.preventDefault();
     // чому тут пропс????
