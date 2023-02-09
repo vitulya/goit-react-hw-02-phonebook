@@ -1,6 +1,8 @@
 import { ContactListItem } from '../ContactListItem/ContactListItem';
 import css from './ContactList.module.css';
 
+import PropTypes from 'prop-types';
+
 export const ContactList = ({ contact, filter, removeContact }) => {
   return (
     <ul>
@@ -22,12 +24,16 @@ export const ContactList = ({ contact, filter, removeContact }) => {
       })}
     </ul>
   );
+};
 
-  // return (
-  //   <ul>
-  //       {contact.map((item) => {
-  //         return 2
-  //       }}
-  //   </ul>
-  // );
+ContactList.propTypes = {
+  contact: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+
+  filter: PropTypes.string.isRequired,
 };

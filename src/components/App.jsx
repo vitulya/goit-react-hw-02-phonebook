@@ -4,8 +4,6 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
-// import { nanoid } from 'nanoid';
-
 export class App extends Component {
   state = {
     contacts: [
@@ -32,15 +30,6 @@ export class App extends Component {
       filter: value,
     });
   };
-
-  // removeContact = id => {
-  //   const { contacts } = this.state;
-  //   const idx = contacts.findIndex(item => item.id === id);
-
-  //   const [...newContactsList] = contacts;
-
-  //   console.log(newContactsList.splice(idx, 1));
-  // };
 
   removeContact = id => {
     this.setState(({ contacts }) => {

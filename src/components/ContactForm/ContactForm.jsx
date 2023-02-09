@@ -16,7 +16,6 @@ export class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // чому тут пропс????
     this.props.handleAddContact({
       name: this.state.name,
       number: this.state.number,
