@@ -3,37 +3,32 @@ import css from './ContactList.module.css';
 
 import PropTypes from 'prop-types';
 
-export const ContactList = ({ contact, filter, removeContact }) => {
+export const ContactList = ({ removeContact, filteredContacts }) => {
   return (
     <ul>
-      {contact.map(item => {
-        if (item.name.toLowerCase().includes(filter.toLowerCase())) {
+      {filteredContacts.length > 0 &&
+        filteredContacts.map(({ id, name, number }) => {
           return (
-            <li className={css.item} key={item.id}>
+            <li className={css.item} key={id}>
               <ContactListItem
-                name={item.name}
-                number={item.number}
-                id={item.id}
+                name={name}
+                number={number}
+                id={id}
                 removeContact={removeContact}
               />
             </li>
           );
-        } else {
-          return null;
-        }
-      })}
+        })}
     </ul>
   );
 };
 
 ContactList.propTypes = {
-  contact: PropTypes.arrayOf(
+  filteredContacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
-
-  filter: PropTypes.string.isRequired,
 };

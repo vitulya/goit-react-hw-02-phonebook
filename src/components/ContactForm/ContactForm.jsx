@@ -27,6 +27,8 @@ export class ContactForm extends Component {
       number: '',
     });
   };
+
+  
   render() {
     return (
       <form className={css.wrapper} onSubmit={this.handleSubmit}>
